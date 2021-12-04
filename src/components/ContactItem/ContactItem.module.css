@@ -1,0 +1,32 @@
+.item {
+  display: flex;
+}
+
+.btnDel {
+  margin-left: 20px;
+  /* padding: 0; */
+  padding-left: 3px;
+  padding-right: 3px;
+  color: #fff;
+  background-color: red;
+  border-color: inherit;
+  border-radius: 20%;
+  cursor: pointer;
+}
+
+.itemName {
+  margin: 0;
+  width: 200px;
+  justify-content: stretch;
+}
+
+.itemNumber {
+  margin: 0;
+  width: 100px;
+  justify-content: stretch;
+}
+
+.hr {
+  display: inline-grid;
+  width: 340px;
+}
