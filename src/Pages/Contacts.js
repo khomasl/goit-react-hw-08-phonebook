@@ -8,7 +8,7 @@ export default function Contacts() {
       <h1 className="App__title">Phonebook</h1>
       <ContactForm />
       <div className="App-Contacts">
-        <h2>Contacts</h2>
+        <h2 className="App__title">Contacts</h2>
         <Filter />
         <ContactsList />
       </div>

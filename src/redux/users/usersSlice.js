@@ -54,6 +54,7 @@ const authSlice = createSlice({
       return {
         ...state,
         isLoading: true,
+        // isFetchingCurrentUser: true,
       }
     },
     [loginThunk.fulfilled](state, action) {
@@ -64,6 +65,7 @@ const authSlice = createSlice({
         token: action.payload.token,
         isAuth: true,
         isLoggedIn: true,
+        // isFetchingCurrentUser: false,
       }
     },
     [loginThunk.rejected](state, action) {
@@ -71,6 +73,7 @@ const authSlice = createSlice({
         ...state,
         isLoading: false,
         error: action.payload,
+        // isFetchingCurrentUser: false,
       }
     },
     //********** */

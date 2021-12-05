@@ -31,6 +31,7 @@ export const contactsApi = createApi({
               })),
             ]
           : [{ type: 'Contacts' }],
+      invalidatesTags: ['Contacts'],
     }),
     //////////
     addNewContact: builder.mutation({

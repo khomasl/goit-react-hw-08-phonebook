@@ -1,4 +1,10 @@
 import { Navigate } from 'react-router'
-export function PublicRoute({ isAuth, component: Component }) {
-  return <>{isAuth ? <Navigate to="/contacts" /> : <Component />}</>
+export function PublicRoute({
+  isAuth,
+  restricted = false,
+  component: Component,
+}) {
+  return (
+    <>{isAuth && restricted ? <Navigate to="/contacts" /> : <Component />}</>
+  )
 }
