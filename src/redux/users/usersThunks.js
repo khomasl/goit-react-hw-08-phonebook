@@ -18,7 +18,7 @@ export const registerThunk = createAsyncThunk(
         body: JSON.stringify(user),
       })
       const data = await response.json()
-      console.log('data :>> ', data)
+      // console.log('data :>> ', data)
       return data // action.payload
     } catch (err) {
       rejectWithValue({ error: err.message })
@@ -47,12 +47,14 @@ export const currentThunk = createAsyncThunk(
   'users/current',
   async (_, { rejectWithValue, getState }) => {
     const state = getState()
-    const token = state.auth.token
-    if (!token) return
+    const persistedToken = state.auth.token
+
+    if (!persistedToken) return rejectWithValue()
+
     try {
       const response = await fetch(BASE_USER_URL + userCurrent, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${persistedToken}`,
         },
       })
       const data = await response.json()
@@ -68,7 +70,9 @@ export const logoutThunk = createAsyncThunk(
   async (_, { rejectWithValue, getState }) => {
     const state = getState()
     const token = state.auth.token
+
     if (!token) return
+
     try {
       await fetch(BASE_USER_URL + userLogout, {
         method: 'POST',
